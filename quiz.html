@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sınav Sistemi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            width: 80%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #4070f4;
+        }
+
+        .question-container {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        form {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .question-media {
+            margin: 15px 0;
+        }
+
+        #progress-bar-container {
+            width: 100%;
+            height: 20px;
+            background-color: lightgray;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        #progress-bar-fill {
+            height: 100%;
+            background-color: green;
+            width: 0;
+            border-radius: 10px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #4070f4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #305abf;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div id="progress-bar-container">
+            <div id="progress-bar-fill"></div>
+        </div>
+
+        <!-- Sorular -->
+        <div class="question-container active" id="question-1">
+            <h2>Soru 1: HTML nedir?</h2>
+            <form>
+                <label><input type="radio" name="question1" value="a"> A) Bir programlama dili</label><br>
+                <label><input type="radio" name="question1" value="b"> B) Bir işaretleme dili</label><br>
+                <label><input type="radio" name="question1" value="c"> C) Bir veritabanı</label><br>
+                <label><input type="radio" name="question1" value="d"> D) Bir tasarım aracı</label>
+            </form>
+            <div class="button-container">
+                <button onclick="showQuestion(2)">Sonraki Soru</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question-2">
+            <h2>Soru 2: Resim örneği sorusu</h2>
+            <div class="question-media">
+                <img src="https://evrenseltest.com.tr/app/public/storage/images/sKBJZVePhx0P3eI3KIYx4B2RXemrTNPxIWFTEK8v.png" alt="Resim" width="400px">
+            </div>
+            <form>
+                <label><input type="radio" name="question2" value="a"> A) Seçenek A</label><br>
+                <label><input type="radio" name="question2" value="b"> B) Seçenek B</label><br>
+                <label><input type="radio" name="question2" value="c"> C) Seçenek C</label><br>
+                <label><input type="radio" name="question2" value="d"> D) Seçenek D</label>
+            </form>
+            <div class="button-container">
+                <button onclick="showQuestion(1)">Önceki Soru</button>
+                <button onclick="showQuestion(3)">Sonraki Soru</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question-3">
+            <h2>Soru 3: Video örneği sorusu</h2>
+            <div class="question-media">
+                <video width="400" controls>
+                    <source src="https://evrenseltest.com.tr/app/public/storage/videos/c4nTPoIb0KNyi5uNqloTyIXzfeLjP9lLtPKRX6zS.mp4" type="video/mp4">
+                    Tarayıcınız bu videoyu desteklemiyor.
+                </video>
+            </div>
+            <form>
+                <label><input type="radio" name="question3" value="a"> A) Seçenek A</label><br>
+                <label><input type="radio" name="question3" value="b"> B) Seçenek B</label><br>
+                <label><input type="radio" name="question3" value="c"> C) Seçenek C</label><br>
+                <label><input type="radio" name="question3" value="d"> D) Seçenek D</label>
+            </form>
+            <div class="button-container">
+                <button onclick="showQuestion(2)">Önceki Soru</button>
+                <button onclick="showQuestion(4)">Sonraki Soru</button>
+            </div>
+        </div>
+
+        <div class="question-container" id="question-4">
+            <h2>Soru 4: Ses örneği sorusu</h2>
+            <div class="question-media">
+                <audio controls>
+                    <source src="https://evrenseltest.com.tr/app/public/storage/voices/kv325l8idxs3eNNl1TuY1HEfM9N1BpTt44rzrTrm.mp3" type="audio/mpeg">
+                    Tarayıcınız bu sesi desteklemiyor.
+                </audio>
+            </div>
+            <form>
+                <label><input type="radio" name="question4" value="a"> A) Seçenek A</label><br>
+                <label><input type="radio" name="question4" value="b"> B) Seçenek B</label><br>
+                <label><input type="radio" name="question4" value="c"> C) Seçenek C</label><br>
+                <label><input type="radio" name="question4" value="d"> D) Seçenek D</label>
+            </form>
+            <div class="button-container">
+                <button onclick="showQuestion(3)">Önceki Soru</button>
+                <button onclick="finishExam()">Sınavı Bitir</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var currentQuestion = 1;
+        var totalQuestions = 4;
+
+        function showQuestion(questionNumber) {
+            document.getElementById('question-' + currentQuestion).classList.remove('active');
+            document.getElementById('question-' + questionNumber).classList.add('active');
+            currentQuestion = questionNumber;
+        }
+
+        function finishExam() {
+            alert('Sınavı bitirdiniz!');
+            // Sınav bitirme işlemleri burada yapılabilir
+        }
+
+        // Zamanlayıcı ve progress bar
+        var duration = 300; // 5 dakika (300 saniye)
+        var progressBar = document.getElementById('progress-bar-fill');
+        var timer = setInterval(function() {
+            duration--;
+            var percent = (300 - duration) / 300 * 100;
+            progressBar.style.width = percent + '%';
+
+            if (duration <= 0) {
+                clearInterval(timer);
+                alert('Sınav süresi doldu!');
+                finishExam();
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
